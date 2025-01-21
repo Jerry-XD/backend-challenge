@@ -26,9 +26,7 @@ func main() {
 
 func solve(codeArr []string, num []int) string {
 	for i, v := range codeArr {
-		// log.Println(i, v)
 		if v == "L" {
-			// log.Println("case L")
 			if i > 0 {
 				if num[i] <= num[i-1] { // if current < left
 					num[i] += num[i+1] + 1  // add current
@@ -36,19 +34,14 @@ func solve(codeArr []string, num []int) string {
 					if num[i-1] == num[i] { // if left == current
 						num[i-1] += 1 // add left
 					}
-
 				}
-
 			}
 		} else if v == "R" {
-			// log.Println("case R")
 			num[i+1] += num[i] + 1
 
 		} else if v == "=" {
-			// log.Println("case =")
 			num[i+1] = num[i]
 		}
-		// log.Println(num)
 	}
 	return arrayToString(num)
 }

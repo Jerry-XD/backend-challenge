@@ -12,7 +12,7 @@ import (
 func TestGetBeefSummary(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 	router := gin.Default()
-	router.GET("/beef/summary", GetBeefSummary)
+	router.GET("/beef/summary", HandlerGetBeefSummary)
 
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest("GET", "/beef/summary", nil)

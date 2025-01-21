@@ -3,31 +3,28 @@ package main
 import (
 	"strings"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSolve(t *testing.T) {
-	var caseA = strings.Split("LLRR=", "")
-	var caseB = strings.Split("==RLL", "")
-	var caseC = strings.Split("=LLRR", "")
+	var inputCaseA = strings.Split("LLRR=", "")
+	var inputCaseB = strings.Split("==RLL", "")
+	var inputCaseC = strings.Split("=LLRR", "")
+	var inputCaseD = strings.Split("RRL=R", "")
 
 	var expectCaseA = "210122"
 	var expectCaseB = "000210"
 	var expectCaseC = "221012"
+	var expectCaseD = "012001"
 
-	var resultA = solve(caseA, make([]int, 6))
-	var resultB = solve(caseB, make([]int, 6))
-	var resultC = solve(caseC, make([]int, 6))
+	var resultA = solve(inputCaseA, make([]int, 6))
+	var resultB = solve(inputCaseB, make([]int, 6))
+	var resultC = solve(inputCaseC, make([]int, 6))
+	var resultD = solve(inputCaseD, make([]int, 6))
 
-	if resultA != expectCaseA {
-		t.Fatalf("case a error")
-	}
-
-	if resultB != expectCaseB {
-		t.Fatalf("case b error")
-	}
-
-	if resultC != expectCaseC {
-		t.Fatalf("case c error")
-	}
-
+	assert.Equal(t, expectCaseA, resultA)
+	assert.Equal(t, expectCaseB, resultB)
+	assert.Equal(t, expectCaseC, resultC)
+	assert.Equal(t, expectCaseD, resultD)
 }

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package getBeef;
+
+option go_package = "getBeef/getBeef";
+
+service GetBeef {
+  rpc GetBeefSummary (GetBeefSummaryRequest) returns (GetBeefSummaryReply);
+}
+
+message GetBeefSummaryRequest {
+}
+
+// Define a message for the top-level structure
+message GetBeefSummaryReply {
+  map<string, int64> beef = 1; // Represents the "beef" map as a repeated field of BeefEntry
+}
